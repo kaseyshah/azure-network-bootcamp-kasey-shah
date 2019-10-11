@@ -19,7 +19,7 @@ az network vnet subnet create -n s20v20 -g rsg-aznetw --vnet-name vnet20 --addre
 #
 # create vnet30
 az network vnet create -g rsg-aznetw -n vnet30 --address-prefix 10.30.0.0/16 -l westeurope
-#creating two subnets in vnet30
+# creating two subnets in vnet30
 az network vnet subnet create -n s10v30 -g rsg-aznetw --vnet-name vnet30 --address-prefix 10.30.10.0/24
 az network vnet subnet create -n s20v30 -g rsg-aznetw --vnet-name vnet30 --address-prefix 10.30.20.0/24
 #
@@ -68,3 +68,5 @@ az network vnet peering create \
     --remote-vnet vnet20 \
     --allow-vnet-access
 #
+az network vnet list -g rsg-aznetw 
+az network vnet show -g rsg-aznetw -n vnet10
