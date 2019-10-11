@@ -1,7 +1,50 @@
 post-it notes for Azure Networking Bootcamp by Kasey Shah
-
+-------------
+# create a vm without pre creating vnet, subnet, nsg
+az vm create -n vm155 -g rsg-dryrun -l eastus2 --image UbuntuLTS --authentication-type password --admin-username kasey --admin-password Microsoft@123 
 # opening ssh port from internet
-az vm open-port -g rsg-aznetw -n vm-s10v10 --port 22 --priority 150
+az vm open-port -g rsg-aznetw -n vm155 --port 22 --priority 150
 #
-# display public IP
+-------------
+# listing list of public public IPs
+az vm list -g rsg-aznetw -d 
+#
+# display public IP of one VM
 az vm show -g rsg-aznetw -n vm-s20v20 -d --query [publicIps]
+-------------
+# Installing web server on Ubuntu Linux in Azure
+ssh to ubuntu linux vm
+$ sudo apt update
+$ sudo apt install apache2
+modify the home page with simple h1 text
+move the current index.html file to index2.html
+$ sudo mv /var/www/html/index.html /var/www/html/index2.html
+Ubuntu HTML file
+$ sudo nano /var/www/html/index.html
+<h1>
+vm-s1v1
+</h1>
+
+save the file with the following sequence
+press: ctrl+X, y, enter
+reload the web server.
+$ sudo service apache2 reload
+check apache web service
+$ service apache2 status
+-------------
+spiking CPU to 100% on a linux
+$ while true; do :; done &
+$ top 
+$ ps -aef
+$ kill -9 (id of the last bash job)
+----------------
+install web server on windows server with the following powershell command
+Set-AzVMExtension `
+  -ResourceGroupName myResourceGroupAG `
+  -ExtensionName IIS `
+  -VMName myVM `
+  -Publisher Microsoft.Compute `
+  -ExtensionType CustomScriptExtension `
+  -TypeHandlerVersion 1.4 `
+  -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+  -Location EastUS
