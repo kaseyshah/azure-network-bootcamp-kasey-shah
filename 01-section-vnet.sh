@@ -38,6 +38,13 @@ az network vnet peering create \
     --vnet-name vnet10 \
     --remote-vnet vnet20 \
     --allow-vnet-access
+# vnet peering from vnet20 to vnet10
+az network vnet peering create \
+    -g rsg-aznetw \
+    -n vnet20-to-vnet10 \
+    --vnet-name vnet20 \
+    --remote-vnet vnet10 \
+    --allow-vnet-access
 # vnet peering from vnet20 to vnet30
 az network vnet peering create \
     -g rsg-aznetw \
