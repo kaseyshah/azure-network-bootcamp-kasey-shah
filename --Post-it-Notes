@@ -1,2 +1,7 @@
 post-it notes for Azure Networking Bootcamp by Kasey Shah
 
+# opening ssh port from internet
+az vm open-port -g rsg-aznetw -n vm-s10v10 --port 22 --priority 150
+#
+# display public IP
+az vm show -g rsg-aznetw -n vm-s20v20 -d --query [publicIps]
