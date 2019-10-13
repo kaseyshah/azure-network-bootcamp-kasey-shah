@@ -1,5 +1,12 @@
 post-it notes for Azure Networking Bootcamp by Kasey Shah
 -------------
+# Creating resource group
+az group create -n rsg-aznetw -l eastus 
+# Deleting resource group
+az group delete -n rsg-aznetw
+# Deleting resource group without waiting and answering yes at CLI
+az group delete -n rsg-aznetw --no-wait -y
+-------------
 # create a vm without pre creating vnet, subnet, nsg
 az vm create -n vm155 -g rsg-dryrun -l eastus2 --image UbuntuLTS --authentication-type password --admin-username kasey --admin-password Microsoft@123 
 # opening ssh port from internet
