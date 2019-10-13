@@ -22,7 +22,7 @@ $ sudo mv /var/www/html/index.html /var/www/html/index2.html
 Ubuntu HTML file
 $ sudo nano /var/www/html/index.html
 <h1>
-vm-s1v1
+vm-s10v10
 </h1>
 
 save the file with the following sequence
