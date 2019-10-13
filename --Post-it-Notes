@@ -1,4 +1,4 @@
-post-it notes for Azure Networking Bootcamp by Kasey Shah
+post-it notes for Azure Networking Bootcamp by Kasey Shah from Microsoft
 -------------
 # Creating resource group
 az group create -n rsg-aznetw -l eastus 
