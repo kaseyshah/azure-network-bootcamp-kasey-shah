@@ -42,7 +42,8 @@ az vm create -n vm-s10v20 -g rsg-aznetw \
     --location eastus \
     --public-ip-address-allocation static \
     --public-ip-sku standard \
-    --nsg nsg-ssh-rdp-web-eastus
+    --nsg nsg-ssh-rdp-web-eastus \
+    --zone 1
 # display public IP
 az vm show -g rsg-aznetw -n vm-s10v20 -d --query [publicIps]
 # create vm-s20v20
@@ -56,7 +57,8 @@ az vm create -n vm-s20v20 -g rsg-aznetw \
     --location eastus \
     --public-ip-address-allocation static \
     --public-ip-sku standard \
-    --nsg nsg-ssh-rdp-web-eastus 
+    --nsg nsg-ssh-rdp-web-eastus \
+    --zone 2
 # display public IP
 az vm show -g rsg-aznetw -n vm-s20v20 -d --query [publicIps]
 #
@@ -118,6 +120,8 @@ az vm create -n vm-s20v40 -g rsg-aznetw \
     --subnet s20v40 \
     --location southeastasia \
     --nsg nsg-ssh-rdp-web-southeastasia \
+    --public-ip-address-allocation static \
+    --public-ip-sku standard \
     --zone 2
 # display public IP
 az vm show -g rsg-aznetw -n vm-s20v40 -d --query [publicIps]
